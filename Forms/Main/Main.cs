@@ -16,6 +16,7 @@ namespace ArtifactManager.Forms.Main
     public partial class Main : Form
     {
         public MainController MainController;
+        public MainStyles MainStyles;
 
         public AddPrivilege.AddPrivilege addPrivilege;
         public AddRole.AddRole addRole;
@@ -32,17 +33,20 @@ namespace ArtifactManager.Forms.Main
         public MyProfile.MyProfile myProfile;
         public Signin.Signin signin;
 
-        public User currentUser;
-        public bool isLoggedIn = false;
+        public static User currentUser;
+        public static bool isLoggedIn = false;
         public Main()
         {
             InitializeComponent();
             MainController = new MainController(this);
+            MainStyles = new MainStyles(this);
             MainController.CustomizedDesign(new List<Panel> { panelCollectionSubmenu, panelUsersSubmenu});
 
             currentUser = new User();
             home = new Home.Home();
             MainController.NavigateToSection(buttonHome, home);
+
+            MainStyles.EnableMenuButtons();
         }
 
         //DROPDOWNS
@@ -70,7 +74,7 @@ namespace ArtifactManager.Forms.Main
         {
             MainController.HideSubMenu(new List<Panel> { panelCollectionSubmenu, panelUsersSubmenu });
 
-            myProfile = new MyProfile.MyProfile();
+            myProfile = new MyProfile.MyProfile(this);
             MainController.NavigateToSection(buttonMyProfile, myProfile);
         }
 
@@ -167,7 +171,7 @@ namespace ArtifactManager.Forms.Main
         private void ButtonSignin_Click(object sender, EventArgs e)
         {
             MainController.HideSubMenu(new List<Panel> { panelCollectionSubmenu, panelUsersSubmenu });
-            signin = new Signin.Signin(this, currentUser);
+            signin = new Signin.Signin(this);
 
             MainController.LogoutUser();
 
@@ -181,11 +185,26 @@ namespace ArtifactManager.Forms.Main
             }
 
             MainController.SwitchMenuSigninButton(buttonSignin, false);
+            MainStyles.EnableMenuButtons();
         }
 
-        public Button buttonSignin;
-        public Panel panelCollectionSubmenu;
-        public Button buttonHome;
         public Panel panelUsersSubmenu;
+        public Panel panelCollectionSubmenu;
+        public Button buttonSignin;
+        public Button buttonHome;
+        public Button buttonCollection;
+        public Button buttonAllCollection;
+        public Button buttonMyCollection;
+        public Button buttonAddEntity;
+        public Button buttonAddCategory;
+        public Button buttonUsers;
+        public Button buttonAddPrivelege;
+        public Button buttonAddRole;
+        public Button buttonAllUsers;
+        public Button buttonMyProfile;
+        public Button buttonNews;
+        public Button buttonHelp;
+        public Button buttonAllRoles;
+        public Button buttonAllPrivileges;
     }
 }

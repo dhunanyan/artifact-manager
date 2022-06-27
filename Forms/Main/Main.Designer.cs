@@ -499,22 +499,8 @@
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelSide;
         private System.Windows.Forms.Panel panelLogo;
-        private System.Windows.Forms.Button buttonCollection;
-        private System.Windows.Forms.Button buttonAllCollection;
-        private System.Windows.Forms.Button buttonMyCollection;
-        private System.Windows.Forms.Button buttonAddEntity;
-        private System.Windows.Forms.Button buttonAddCategory;
-        private System.Windows.Forms.Button buttonUsers;
-        private System.Windows.Forms.Button buttonAddPrivelege;
-        private System.Windows.Forms.Button buttonAddRole;
-        private System.Windows.Forms.Button buttonAllUsers;
-        private System.Windows.Forms.Button buttonMyProfile;
-        private System.Windows.Forms.Button buttonNews;
-        private System.Windows.Forms.Button buttonHelp;
         private System.Windows.Forms.Label labelLogo;
         private System.Windows.Forms.Panel panelLine;
-        private System.Windows.Forms.Button buttonAllRoles;
-        private System.Windows.Forms.Button buttonAllPrivileges;
         private System.Windows.Forms.Panel panelContent;
     }
 }

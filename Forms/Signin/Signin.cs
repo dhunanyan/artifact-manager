@@ -16,19 +16,18 @@ namespace ArtifactManager.Forms.Signin
     public partial class Signin : Form
     {
         public Main.Main caller;
-        public User currentUser;
 
         SigninController SigninController;
         public SigninStyles SigninStyles;
         public bool isSignIn = false;
 
-        public Signin(Main.Main caller, User currentUser)
+        public Signin(Main.Main caller)
         {
             InitializeComponent();
             SigninController = new SigninController(this);
             SigninStyles = new SigninStyles(this);
+
             this.caller = caller;
-            this.currentUser = currentUser;
         }
 
         private void CustomTextBoxLogin__TextChanged(object sender, EventArgs e)
@@ -60,12 +59,8 @@ namespace ArtifactManager.Forms.Signin
 
         private void ButtonSubmitSignin_Click(object sender, EventArgs e)
         {
-            caller.currentUser = SigninController.SignInUser(customTextBoxLoginSignin, customTextBoxPasswordSignin);
-
+            SigninController.SignInUser(customTextBoxLoginSignin, customTextBoxPasswordSignin);
             caller.MainController.HideSubMenu(new List<Panel> { caller.panelCollectionSubmenu, caller.panelUsersSubmenu });
-
-            Home.Home home = new Home.Home();
-
         }
 
         private void ButtonSwitchToSignin_Click(object sender, EventArgs e)

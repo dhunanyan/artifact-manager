@@ -9,9 +9,9 @@ namespace ArtifactManager.Forms.Main
 {
     public class MainStyles
     {
-        Form caller;
+        Main caller;
 
-        public MainStyles(Form caller)
+        public MainStyles(Main caller)
         {
             this.caller = caller;
         }
@@ -25,6 +25,13 @@ namespace ArtifactManager.Forms.Main
 
             Label panelContent = (Label)((Panel)currentForm.Controls.Find("panelTitle", true)[0]).Controls.Find("labelTitle", true)[0];
             panelContent.Text = currentButton.Text;
+        }
+
+        public void EnableMenuButtons()
+        {
+            caller.buttonCollection.Enabled = Main.isLoggedIn;
+            caller.buttonUsers.Enabled = Main.isLoggedIn;
+            caller.buttonMyProfile.Enabled = Main.isLoggedIn;
         }
     }
 }

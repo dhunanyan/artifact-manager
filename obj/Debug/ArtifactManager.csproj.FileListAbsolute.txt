@@ -105,3 +105,4 @@ C:\Users\dhunanyan\Desktop\AGH\sem4\programowanie-zaawansowane\ArtifactManager\o
 C:\Users\dhunanyan\Desktop\AGH\sem4\programowanie-zaawansowane\ArtifactManager\obj\Debug\ArtifactManager.Forms.AddEntity.AddEntity.resources
 C:\Users\dhunanyan\Desktop\AGH\sem4\programowanie-zaawansowane\ArtifactManager\bin\Debug\CustomControls.dll
 C:\Users\dhunanyan\Desktop\AGH\sem4\programowanie-zaawansowane\ArtifactManager\obj\Debug\ArtifactManager.Forms.Signin.Signin.resources
+C:\Users\dhunanyan\Desktop\AGH\sem4\programowanie-zaawansowane\ArtifactManager\bin\Debug\Firebase.Storage.dll

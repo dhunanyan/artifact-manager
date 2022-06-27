@@ -32,7 +32,8 @@ namespace ArtifactManager.Forms.Signin
                 FirstName = firstName,
                 LastName = lastName,
                 Username = username,
-                Password = password
+                Password = password,
+                ImageUrl = ""
             };
             context.Add(newUser);
             context.SaveChanges();
@@ -47,15 +48,33 @@ namespace ArtifactManager.Forms.Signin
 
         public User SignInUser(string username, string password)
         {
-            using var context = new ArtifactManagerContext();
-            User currentUser = context.Users.
-                Where(u => u.Username.Equals(username) && u.Password.Equals(password)).FirstOrDefault();
-
-            if(currentUser == null)
+            using(var context = new ArtifactManagerContext())
             {
-                return null;
+                User currentUser = context.Users.Where(u => u.Username == username && u.Password == password).First();
+
+                if (currentUser == null)
+                {
+                    return null;
+                }
+
+                return currentUser;
             }
-            return currentUser;
+        }
+
+        public void MakeNewUserGuest(string username)
+        {
+            using var context = new ArtifactManagerContext();
+            User user = (User)context.Users.Where(u => u.Username.Equals(username)).First();
+            Role role = (Role)context.Roles.Where(r => r.Name == "Guest").First();
+
+            context.CurrentUserRoles.Add(new CurrentUserRole()
+            {
+                User = user,
+                Role = role,
+                RoleOwner = user.Username
+            });
+
+            context.SaveChanges();
         }
     }
 }

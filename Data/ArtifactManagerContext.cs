@@ -10,16 +10,16 @@ namespace ArtifactManager.Data
 {
     public class ArtifactManagerContext : DbContext
     {
-        public DbSet<User> Users { get; set; }
-        public DbSet<Role> Roles { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Entity> Entities { get; set; }
-        public DbSet<Privelege> Priveleges { get; set; }
-        public DbSet<Models.Attribute> Attributes { get; set; }
-        public DbSet<CurrentEntityAttribute> CurrentEntityAttribute { get; set; }
-        public DbSet<CurrentRolePrivilege> CurrentRolePrivileges { get; set; }
-        public DbSet<CurrentUserCategory> CurrentUserCategories { get; set; }
-        public DbSet<CurrentUserRole> CurrentUserRoles { get; set; }
+        public DbSet<User> Users { get; set; } = null!;
+        public DbSet<Role> Roles { get; set; } = null!;
+        public DbSet<Category> Categories { get; set; } = null!;
+        public DbSet<Entity> Entities { get; set; } = null!;
+        public DbSet<Privelege> Priveleges { get; set; } = null!;
+        public DbSet<Models.Attribute> Attributes { get; set; } = null!;
+        public DbSet<CurrentEntityAttribute> CurrentEntityAttribute { get; set; } = null!;
+        public DbSet<CurrentRolePrivilege> CurrentRolePrivileges { get; set; } = null!;
+        public DbSet<CurrentUserCategory> CurrentUserCategories { get; set; } = null!;
+        public DbSet<CurrentUserRole> CurrentUserRoles { get; set; } = null!;
 
 
         public void ApplicationDbContext()
@@ -38,16 +38,15 @@ namespace ArtifactManager.Data
         {
             modelBuilder.Entity<User>().Property(u => u.Username).IsUnicode();
             modelBuilder.Entity<User>().HasAlternateKey(u => u.Username);
-            modelBuilder.Entity<User>().HasData(new User { UserID = 1, FirstName = "Admin", LastName = "Admin", Username = "admin", Password = "Admin-10" });
+            modelBuilder.Entity<User>().HasData(new User { UserID = 1, FirstName = "Admin", LastName = "Admin", Username = "admin", Password = "Admin-10", ImageUrl = "" });
 
             modelBuilder.Entity<Entity>().Property(u => u.Name).IsUnicode();
             modelBuilder.Entity<Entity>().HasAlternateKey(u => u.Name);
 
-            modelBuilder.Entity<Models.Attribute>().Property(u => u.Name).IsUnicode();
-            modelBuilder.Entity<Models.Attribute>().HasAlternateKey(u => u.Name);
-
             modelBuilder.Entity<Category>().Property(c => c.Name).IsUnicode();
 
+            modelBuilder.Entity<Role>().Property(e => e.Name).IsUnicode();
+            modelBuilder.Entity<Role>().HasAlternateKey(e => e.Name);
             modelBuilder.Entity<Role>().HasData(
                 new Role { RoleID = 1, Name = "Guest"}, 
                 new Role { RoleID = 2, Name = "User" }, 

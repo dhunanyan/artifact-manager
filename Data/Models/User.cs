@@ -23,7 +23,10 @@ namespace ArtifactManager.Data.Models
         public string Username { get; set; } = null!;
 
         [MaxLength(100)]
-        public string Password { get; set; } = null!;
+        public string Password { get; set; } = null!;        
+
+        [MaxLength(10000)]
+        public string ImageUrl { get; set; } = null!;
 
         public ICollection<CurrentUserRole> CurrentUserRoles { get; set; } = null!;
         public ICollection<CurrentUserCategory> CurrentUserCategories { get; set; } = null!;

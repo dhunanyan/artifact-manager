@@ -1,0 +1,53 @@
+Roles
+1	Guest
+2	User
+3	Admin
+
+Users
+1	Admin	Admin	admin	Admin-10	https://firebasestorage.googleapis.com/v0/b/rpcartifactmanager.appspot.com/o/Images%2Fadmin?alt=media&token=bd50ea04-309b-4dde-a389-c6b4b36cd656
+2	Davit	Hunanyan	dhunanyan	Dhunanyan-10	https://firebasestorage.googleapis.com/v0/b/rpcartifactmanager.appspot.com/o/Images%2Fdhunanyan?alt=media&token=d0ec1dbe-e906-4439-b3de-96627e746b71
+3	Mateusz	Błąszczyk	jestemtrupem	Trupy-10
+
+Users&Roles
+1	jestemtrupem	4	1
+2	dhunanyan	2	1
+3	admin	1	3
+
+-----------------------------------------
+
+Category
+1	Wizzard
+2	Dragon
+3	Archer
+4	Ent
+5	Tower
+6	Copse
+7	Cave
+
+Entity
+1	Harry	20	40	10	1
+2	Bestie	50	90	80	2
+3	Cavie	5	9	10000	7
+4	Boomer	70	125	40	3
+
+Attr
+1	Name	Steve
+2	Power	50
+3	Manga	80
+4	Manga	30
+5	Name	Alfredo
+6	Power	95
+7	Manga	205
+
+Ent&Attr
+1	Harry	2	3
+2	Bestie	3	7
+
+User&Category
+1	dhunanyan	2	1
+2	dhunanyan	2	2
+3	dhunanyan	2	3
+4	dhunanyan	2	4
+5	dhunanyan	2	5
+6	dhunanyan	2	6
+7	jestemtrupem	4	7

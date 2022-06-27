@@ -12,9 +12,21 @@ namespace ArtifactManager.Forms.AllCollection
 {
     public partial class AllCollection : Form
     {
-        public AllCollection()
+        public AllCollection caller;
+
+        public AllCollectionStyles AllCollectionStyles;
+        public AllCollectionReq AllCollectionReq;
+        public AllCollectionController AllCollectionController;
+        public AllCollection(AllCollection caller)
         {
             InitializeComponent();
+
+            this.caller = caller;
+            AllCollectionStyles = new AllCollectionStyles(this);
+            AllCollectionReq = new AllCollectionReq(this);
+            AllCollectionController = new AllCollectionController(this);
         }
+
+        public FlowLayoutPanel flowLayoutPanelAllRecords;
     }
 }

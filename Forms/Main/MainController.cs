@@ -69,8 +69,8 @@ namespace ArtifactManager.Forms.Main
 
         public void LogoutUser()
         {
-            caller.currentUser = null;
-            caller.isLoggedIn = false;
+            Main.currentUser = null;
+            Main.isLoggedIn = false;
         }
 
         public void SwitchMenuSigninButton(Button buttonSignin, bool isLoggedIn)

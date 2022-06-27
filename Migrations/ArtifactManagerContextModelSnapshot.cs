@@ -29,8 +29,7 @@ namespace ArtifactManager.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100)
-                        .IsUnicode(true);
+                        .HasMaxLength(100);
 
                     b.Property<string>("Type")
                         .IsRequired()
@@ -38,8 +37,6 @@ namespace ArtifactManager.Migrations
                         .HasMaxLength(20);
 
                     b.HasKey("AttributeID");
-
-                    b.HasAlternateKey("Name");
 
                     b.ToTable("Attributes");
                 });
@@ -268,6 +265,11 @@ namespace ArtifactManager.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasMaxLength(10000);
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)")
@@ -295,6 +297,7 @@ namespace ArtifactManager.Migrations
                         {
                             UserID = 1,
                             FirstName = "Admin",
+                            ImageUrl = "",
                             LastName = "Admin",
                             Password = "Admin-10",
                             Username = "admin"
