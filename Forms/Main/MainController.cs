@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ArtifactManager.Data.Models;
+using ArtifactManager.Properties;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,11 +12,11 @@ namespace ArtifactManager.Forms.Main
 {
     public class MainController
     {
-        Form caller;
+        Main caller;
 
         MainStyles MainStyles;
         MainReq MainReq;
-        public MainController(Form caller)
+        public MainController(Main caller)
         {
             this.caller = caller;
             MainReq = new MainReq(caller);
@@ -63,6 +65,26 @@ namespace ArtifactManager.Forms.Main
             panelContent.Tag = formToNavigateTo;
             formToNavigateTo.Show();
             formToNavigateTo.BringToFront();
+        }
+
+        public void LogoutUser()
+        {
+            caller.currentUser = null;
+            caller.isLoggedIn = false;
+        }
+
+        public void SwitchMenuSigninButton(Button buttonSignin, bool isLoggedIn)
+        {
+            if (!isLoggedIn)
+            {
+                buttonSignin.Text = "      Sign in";
+                buttonSignin.Image = Resources.Signin;
+            }
+            else
+            {
+                buttonSignin.Text = "      Logout";
+                buttonSignin.Image = Resources.Logout;
+            }
         }
     }
 }

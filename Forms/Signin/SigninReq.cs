@@ -1,5 +1,6 @@
 ﻿using ArtifactManager.Data;
 using ArtifactManager.Data.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +36,26 @@ namespace ArtifactManager.Forms.Signin
             };
             context.Add(newUser);
             context.SaveChanges();
+        }
+
+        public bool CheckUserLoginAndPassword(string username, string password)
+        {
+            using var context = new ArtifactManagerContext();
+            var users = context.Users.Where(u => u.Username.Equals(username) && u.Password.Equals(password)).ToList();
+            return users.Count > 0;
+        }
+
+        public User SignInUser(string username, string password)
+        {
+            using var context = new ArtifactManagerContext();
+            User currentUser = context.Users.
+                Where(u => u.Username.Equals(username) && u.Password.Equals(password)).FirstOrDefault();
+
+            if(currentUser == null)
+            {
+                return null;
+            }
+            return currentUser;
         }
     }
 }

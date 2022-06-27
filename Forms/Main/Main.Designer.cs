@@ -29,19 +29,18 @@
         private void InitializeComponent()
         {
             this.flowLayoutPanelSide = new System.Windows.Forms.FlowLayoutPanel();
-            this.panelLine = new System.Windows.Forms.Panel();
-            this.panelCollectionSubmenu = new System.Windows.Forms.Panel();
-            this.panelUsersSubmenu = new System.Windows.Forms.Panel();
-            this.panelContent = new System.Windows.Forms.Panel();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.labelLogo = new System.Windows.Forms.Label();
+            this.panelLine = new System.Windows.Forms.Panel();
             this.buttonHome = new System.Windows.Forms.Button();
             this.buttonCollection = new System.Windows.Forms.Button();
+            this.panelCollectionSubmenu = new System.Windows.Forms.Panel();
             this.buttonAddEntity = new System.Windows.Forms.Button();
             this.buttonAddCategory = new System.Windows.Forms.Button();
             this.buttonMyCollection = new System.Windows.Forms.Button();
             this.buttonAllCollection = new System.Windows.Forms.Button();
             this.buttonUsers = new System.Windows.Forms.Button();
+            this.panelUsersSubmenu = new System.Windows.Forms.Panel();
             this.buttonAddPrivelege = new System.Windows.Forms.Button();
             this.buttonAddRole = new System.Windows.Forms.Button();
             this.buttonAllPrivileges = new System.Windows.Forms.Button();
@@ -51,10 +50,11 @@
             this.buttonNews = new System.Windows.Forms.Button();
             this.buttonHelp = new System.Windows.Forms.Button();
             this.buttonSignin = new System.Windows.Forms.Button();
+            this.panelContent = new System.Windows.Forms.Panel();
             this.flowLayoutPanelSide.SuspendLayout();
+            this.panelLogo.SuspendLayout();
             this.panelCollectionSubmenu.SuspendLayout();
             this.panelUsersSubmenu.SuspendLayout();
-            this.panelLogo.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanelSide
@@ -79,53 +79,6 @@
             this.flowLayoutPanelSide.Size = new System.Drawing.Size(250, 820);
             this.flowLayoutPanelSide.TabIndex = 0;
             // 
-            // panelLine
-            // 
-            this.panelLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(82)))), ((int)(((byte)(82)))));
-            this.panelLine.Location = new System.Drawing.Point(0, 190);
-            this.panelLine.Margin = new System.Windows.Forms.Padding(0, 0, 0, 20);
-            this.panelLine.Name = "panelLine";
-            this.panelLine.Size = new System.Drawing.Size(250, 5);
-            this.panelLine.TabIndex = 10;
-            // 
-            // panelCollectionSubmenu
-            // 
-            this.panelCollectionSubmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(14)))), ((int)(((byte)(24)))));
-            this.panelCollectionSubmenu.Controls.Add(this.buttonAddEntity);
-            this.panelCollectionSubmenu.Controls.Add(this.buttonAddCategory);
-            this.panelCollectionSubmenu.Controls.Add(this.buttonMyCollection);
-            this.panelCollectionSubmenu.Controls.Add(this.buttonAllCollection);
-            this.panelCollectionSubmenu.Location = new System.Drawing.Point(0, 305);
-            this.panelCollectionSubmenu.Margin = new System.Windows.Forms.Padding(0);
-            this.panelCollectionSubmenu.Name = "panelCollectionSubmenu";
-            this.panelCollectionSubmenu.Size = new System.Drawing.Size(250, 185);
-            this.panelCollectionSubmenu.TabIndex = 4;
-            // 
-            // panelUsersSubmenu
-            // 
-            this.panelUsersSubmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(14)))), ((int)(((byte)(24)))));
-            this.panelUsersSubmenu.Controls.Add(this.buttonAddPrivelege);
-            this.panelUsersSubmenu.Controls.Add(this.buttonAddRole);
-            this.panelUsersSubmenu.Controls.Add(this.buttonAllPrivileges);
-            this.panelUsersSubmenu.Controls.Add(this.buttonAllRoles);
-            this.panelUsersSubmenu.Controls.Add(this.buttonAllUsers);
-            this.panelUsersSubmenu.Location = new System.Drawing.Point(0, 535);
-            this.panelUsersSubmenu.Margin = new System.Windows.Forms.Padding(0);
-            this.panelUsersSubmenu.Name = "panelUsersSubmenu";
-            this.panelUsersSubmenu.Size = new System.Drawing.Size(250, 240);
-            this.panelUsersSubmenu.TabIndex = 6;
-            // 
-            // panelContent
-            // 
-            this.panelContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
-            this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContent.Location = new System.Drawing.Point(250, 0);
-            this.panelContent.Margin = new System.Windows.Forms.Padding(0);
-            this.panelContent.MinimumSize = new System.Drawing.Size(934, 731);
-            this.panelContent.Name = "panelContent";
-            this.panelContent.Size = new System.Drawing.Size(934, 781);
-            this.panelContent.TabIndex = 1;
-            // 
             // panelLogo
             // 
             this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(14)))), ((int)(((byte)(24)))));
@@ -147,6 +100,15 @@
             this.labelLogo.Size = new System.Drawing.Size(214, 33);
             this.labelLogo.TabIndex = 0;
             this.labelLogo.Text = "Artifact Manager";
+            // 
+            // panelLine
+            // 
+            this.panelLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(82)))), ((int)(((byte)(82)))));
+            this.panelLine.Location = new System.Drawing.Point(0, 190);
+            this.panelLine.Margin = new System.Windows.Forms.Padding(0, 0, 0, 20);
+            this.panelLine.Name = "panelLine";
+            this.panelLine.Size = new System.Drawing.Size(250, 5);
+            this.panelLine.TabIndex = 10;
             // 
             // buttonHome
             // 
@@ -185,6 +147,19 @@
             this.buttonCollection.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonCollection.UseVisualStyleBackColor = true;
             this.buttonCollection.Click += new System.EventHandler(this.ButtonCollection_Click);
+            // 
+            // panelCollectionSubmenu
+            // 
+            this.panelCollectionSubmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(14)))), ((int)(((byte)(24)))));
+            this.panelCollectionSubmenu.Controls.Add(this.buttonAddEntity);
+            this.panelCollectionSubmenu.Controls.Add(this.buttonAddCategory);
+            this.panelCollectionSubmenu.Controls.Add(this.buttonMyCollection);
+            this.panelCollectionSubmenu.Controls.Add(this.buttonAllCollection);
+            this.panelCollectionSubmenu.Location = new System.Drawing.Point(0, 305);
+            this.panelCollectionSubmenu.Margin = new System.Windows.Forms.Padding(0);
+            this.panelCollectionSubmenu.Name = "panelCollectionSubmenu";
+            this.panelCollectionSubmenu.Size = new System.Drawing.Size(250, 185);
+            this.panelCollectionSubmenu.TabIndex = 4;
             // 
             // buttonAddEntity
             // 
@@ -292,6 +267,20 @@
             this.buttonUsers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonUsers.UseVisualStyleBackColor = true;
             this.buttonUsers.Click += new System.EventHandler(this.ButtonUsers_Click);
+            // 
+            // panelUsersSubmenu
+            // 
+            this.panelUsersSubmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(14)))), ((int)(((byte)(24)))));
+            this.panelUsersSubmenu.Controls.Add(this.buttonAddPrivelege);
+            this.panelUsersSubmenu.Controls.Add(this.buttonAddRole);
+            this.panelUsersSubmenu.Controls.Add(this.buttonAllPrivileges);
+            this.panelUsersSubmenu.Controls.Add(this.buttonAllRoles);
+            this.panelUsersSubmenu.Controls.Add(this.buttonAllUsers);
+            this.panelUsersSubmenu.Location = new System.Drawing.Point(0, 535);
+            this.panelUsersSubmenu.Margin = new System.Windows.Forms.Padding(0);
+            this.panelUsersSubmenu.Name = "panelUsersSubmenu";
+            this.panelUsersSubmenu.Size = new System.Drawing.Size(250, 240);
+            this.panelUsersSubmenu.TabIndex = 6;
             // 
             // buttonAddPrivelege
             // 
@@ -474,6 +463,17 @@
             this.buttonSignin.UseVisualStyleBackColor = true;
             this.buttonSignin.Click += new System.EventHandler(this.ButtonSignin_Click);
             // 
+            // panelContent
+            // 
+            this.panelContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
+            this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContent.Location = new System.Drawing.Point(250, 0);
+            this.panelContent.Margin = new System.Windows.Forms.Padding(0);
+            this.panelContent.MinimumSize = new System.Drawing.Size(934, 731);
+            this.panelContent.Name = "panelContent";
+            this.panelContent.Size = new System.Drawing.Size(934, 781);
+            this.panelContent.TabIndex = 1;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -488,9 +488,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DreamCar";
             this.flowLayoutPanelSide.ResumeLayout(false);
+            this.panelLogo.ResumeLayout(false);
             this.panelCollectionSubmenu.ResumeLayout(false);
             this.panelUsersSubmenu.ResumeLayout(false);
-            this.panelLogo.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -498,16 +498,13 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelSide;
-        private System.Windows.Forms.Button buttonHome;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.Button buttonCollection;
-        private System.Windows.Forms.Panel panelCollectionSubmenu;
         private System.Windows.Forms.Button buttonAllCollection;
         private System.Windows.Forms.Button buttonMyCollection;
         private System.Windows.Forms.Button buttonAddEntity;
         private System.Windows.Forms.Button buttonAddCategory;
         private System.Windows.Forms.Button buttonUsers;
-        private System.Windows.Forms.Panel panelUsersSubmenu;
         private System.Windows.Forms.Button buttonAddPrivelege;
         private System.Windows.Forms.Button buttonAddRole;
         private System.Windows.Forms.Button buttonAllUsers;
@@ -519,7 +516,6 @@
         private System.Windows.Forms.Button buttonAllRoles;
         private System.Windows.Forms.Button buttonAllPrivileges;
         private System.Windows.Forms.Panel panelContent;
-        private System.Windows.Forms.Button buttonSignin;
     }
 }
 

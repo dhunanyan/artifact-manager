@@ -1,4 +1,5 @@
-﻿using ArtifactManager.Forms.Main;
+﻿using ArtifactManager.Data.Models;
+using ArtifactManager.Forms.Main;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,28 +15,32 @@ namespace ArtifactManager.Forms.Main
 {
     public partial class Main : Form
     {
-        MainController MainController;
+        public MainController MainController;
 
-        AddPrivilege.AddPrivilege addPrivilege;
-        AddRole.AddRole addRole;
-        AllPrivileges.AllPrivileges allPrivileges;
-        AllRoles.AllRoles allRoles;
-        AllCollection.AllCollection allCollection;
-        AllUsers.AllUsers allUsers;
-        AddEntity.AddEntity addEntity;
-        AddCategory.AddCategory addCategory;
-        Home.Home home;
-        Help.Help help;
-        News.News news;
-        MyCollection.MyCollection myCollection;
-        MyProfile.MyProfile myProfile;
-        Signin.Signin signin;
+        public AddPrivilege.AddPrivilege addPrivilege;
+        public AddRole.AddRole addRole;
+        public AllPrivileges.AllPrivileges allPrivileges;
+        public AllRoles.AllRoles allRoles;
+        public AllCollection.AllCollection allCollection;
+        public AllUsers.AllUsers allUsers;
+        public AddEntity.AddEntity addEntity;
+        public AddCategory.AddCategory addCategory;
+        public Home.Home home;
+        public Help.Help help;
+        public News.News news;
+        public MyCollection.MyCollection myCollection;
+        public MyProfile.MyProfile myProfile;
+        public Signin.Signin signin;
+
+        public User currentUser;
+        public bool isLoggedIn = false;
         public Main()
         {
             InitializeComponent();
             MainController = new MainController(this);
             MainController.CustomizedDesign(new List<Panel> { panelCollectionSubmenu, panelUsersSubmenu});
 
+            currentUser = new User();
             home = new Home.Home();
             MainController.NavigateToSection(buttonHome, home);
         }
@@ -162,9 +167,25 @@ namespace ArtifactManager.Forms.Main
         private void ButtonSignin_Click(object sender, EventArgs e)
         {
             MainController.HideSubMenu(new List<Panel> { panelCollectionSubmenu, panelUsersSubmenu });
+            signin = new Signin.Signin(this, currentUser);
 
-            signin = new Signin.Signin();
-            MainController.NavigateToSection(buttonSignin, signin);
+            MainController.LogoutUser();
+
+            if (!isLoggedIn)
+            {
+                MainController.NavigateToSection(buttonSignin, signin);
+            }
+            else
+            {
+                MainController.NavigateToSection(buttonSignin, signin);
+            }
+
+            MainController.SwitchMenuSigninButton(buttonSignin, false);
         }
+
+        public Button buttonSignin;
+        public Panel panelCollectionSubmenu;
+        public Button buttonHome;
+        public Panel panelUsersSubmenu;
     }
 }

@@ -1,4 +1,5 @@
-﻿using CustomControls.Controls;
+﻿using ArtifactManager.Data.Models;
+using CustomControls.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,12 @@ namespace ArtifactManager.Forms.Signin
     {
         Signin caller;
         SigninReq SigninReq;
+        SigninStyles SigninStyles;
         public SigninController(Signin caller)
         {
             this.caller = caller;
             SigninReq = new SigninReq(caller);
+            SigninStyles = new SigninStyles(caller);
         }
 
         public void AddUser(CustomTextBoxLogin customTextBoxLogin, CustomTextBoxPassword customTextBoxPassword, CustomTextBoxPassword customTextBoxPasswordRepeat, CustomTextBoxLogin customTextBoxFirstName, CustomTextBoxLogin customTextBoxLastName)
@@ -62,7 +65,7 @@ namespace ArtifactManager.Forms.Signin
                     }
                     else
                     {
-                        SigninReq.AddUser(customTextBoxLogin.CustomText, customTextBoxPassword.CustomText, customTextBoxFirstName.CustomText, customTextBoxLastName.CustomText);
+                        SigninReq.AddUser(customTextBoxFirstName.CustomText, customTextBoxLastName.CustomText, customTextBoxLogin.CustomText, customTextBoxPassword.CustomText);
                         MessageBox.Show("Congratulations you have succesfully created a new account!", "Signup Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         customTextBoxLogin.CustomText = null;
@@ -110,6 +113,57 @@ namespace ArtifactManager.Forms.Signin
                 customTextBoxPassword.CustomText = null;
                 customTextBoxLogin.Focus();
             }
+        }
+    
+        public User SignInUser(CustomTextBoxLogin customTextBoxLogin, CustomTextBoxPassword customTextBoxPassword)
+        {
+            if (customTextBoxLogin.CustomText.Length == 0 && customTextBoxPassword.CustomText.Length == 0)
+            {
+                MessageBox.Show("Error. Please enter your Login and Password", "Signin Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                customTextBoxLogin.Focus();
+
+                return null;
+            }
+            else if (customTextBoxLogin.CustomText.Length == 0)
+            {
+                MessageBox.Show("Error. Please enter your Login", "Signin Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                customTextBoxLogin.Focus();
+
+                return null;
+            }
+            else if (customTextBoxPassword.CustomText.Length == 0)
+            {
+                MessageBox.Show("Error. Please enter your Password", "Signin Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                customTextBoxPassword.Focus();
+
+                return null;
+            }
+            if (!SigninReq.UserExists(customTextBoxLogin.CustomText))
+            {
+                MessageBox.Show("Error. User with current Username doesn't exists", "Signin Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                customTextBoxLogin.CustomText = null;
+                customTextBoxLogin.Focus();
+
+                return null;
+            }
+            if(!SigninReq.CheckUserLoginAndPassword(customTextBoxLogin.CustomText, customTextBoxPassword.CustomText))
+            {
+                MessageBox.Show("Error. Wrong Password", "Signin Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                customTextBoxPassword.CustomText = null;
+                customTextBoxPassword.Focus();
+
+                return null;
+            }
+
+            MessageBox.Show("Successfully logged in", "Signin Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            customTextBoxPassword.CustomText = null;
+            customTextBoxLogin.CustomText = null;
+
+            caller.caller.isLoggedIn = true;
+            caller.caller.MainController.SwitchMenuSigninButton(caller.caller.buttonSignin, caller.caller.isLoggedIn);
+            caller.caller.MainController.NavigateToSection(caller.caller.buttonHome, caller.caller.home);
+
+            return SigninReq.SignInUser(customTextBoxLogin.CustomText, customTextBoxPassword.CustomText);
         }
     }
 }

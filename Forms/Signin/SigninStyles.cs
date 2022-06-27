@@ -1,4 +1,5 @@
-﻿using ArtifactManager.Properties;
+﻿using ArtifactManager.Data.Models;
+using ArtifactManager.Properties;
 using CustomControls.Controls;
 using System;
 using System.Collections.Generic;
@@ -34,6 +35,33 @@ namespace ArtifactManager.Forms.Signin
         {
             panelLoginCharSpecial.BackgroundImage = Boolean.Parse(special) ? Resources.CorrectGreen : Resources.Error;
             panelLoginCharCount.BackgroundImage = Boolean.Parse(count) ? Resources.CorrectGreen : Resources.Error;
+        }
+
+        public void SwitchToSignup()
+        {
+            caller.panelFormSignin.Visible = false;
+            caller.panelForm.Visible = true;
+            caller.isSignIn = false;
+            caller.customTextBoxFirstName.CustomText = null;
+            caller.customTextBoxLastName.CustomText = null;
+            caller.customTextBoxLogin.CustomText = null;
+            caller.customTextBoxPasswordRepeat.CustomText = null;
+            caller.customTextBoxPassword.CustomText = null;
+            caller.customTextBoxLoginSignin.CustomText = null;
+            caller.customTextBoxPasswordSignin.CustomText = null;
+        }
+        public void SwitchToSignin()
+        {
+            caller.panelFormSignin.Visible = true;
+            caller.panelForm.Visible = false;
+            caller.isSignIn = true;
+            caller.customTextBoxFirstName.CustomText = null;
+            caller.customTextBoxLastName.CustomText = null;
+            caller.customTextBoxLogin.CustomText = null;
+            caller.customTextBoxPasswordRepeat.CustomText = null;
+            caller.customTextBoxPassword.CustomText = null;
+            caller.customTextBoxLoginSignin.CustomText = null;
+            caller.customTextBoxPasswordSignin.CustomText = null;
         }
     }
 }
